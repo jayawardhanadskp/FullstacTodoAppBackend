@@ -2,6 +2,7 @@ const app = require('./app');
 
 const port = 3000;
 
+// root route
 app.get('/',(req,res)=>{
     res.send("Hello World!")
 });
