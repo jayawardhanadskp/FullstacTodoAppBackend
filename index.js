@@ -1,6 +1,7 @@
 const app = require('./app');
-const db = require('./config/db'); // Ensure this sets up the DB connection
-const UserModel = require('./model/user.model'); // Ensure this is correct
+const db = require('./config/db'); 
+const UserModel = require('./model/user.model'); 
+const ToDoModel = require('./model/todo.model');
 
 const port = 3000;
 
