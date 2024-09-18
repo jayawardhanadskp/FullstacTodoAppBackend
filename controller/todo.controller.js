@@ -42,10 +42,19 @@ exports.deleteToDo = async (req, res, next) => {
     try {
         const {id} = req.body;
 
+        if (!id) {
+            return res.status(400).json({status: false, message : 'Id is required'});
+        }
+
         let deleted = await ToDoServices.deleteToDo(id);
+
+        if (!deleted) {
+            return res.status(404).json({status: false, message: 'To do item not found'});
+        }
 
         res.json({status: true, sucess:deleted});
     } catch (e) {
         next(e);
+        res.status(500).json({status: false, message: 'Ann  erro occur while deleting item'});
     }
 }
