@@ -5,6 +5,11 @@ class ToDoServices {
         const createToDo = new ToDoModel({userId, title, desc});
         return await createToDo.save();
     }
+
+    static async getToDodata(userId) {
+        const todoData = await ToDoModel.find({userId})
+        return  todoData;
+    }
 }
 
 module.exports = ToDoServices;

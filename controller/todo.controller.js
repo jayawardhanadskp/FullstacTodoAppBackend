@@ -11,3 +11,15 @@ exports.createToDo = async (req, res, next) => {
         next(e);
     }
 }
+
+exports.getUserToDo = async (req, res, next) => {
+    try {
+        const {userId} = req.body;
+
+        let todo = await ToDoServices.getToDodata(userId);
+
+        res.json({status: true, success:todo});
+    } catch (e) {
+        next(e);
+    }
+}
