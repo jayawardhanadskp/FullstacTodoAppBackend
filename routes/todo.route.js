@@ -5,6 +5,8 @@ const { createToDo } = require('../services/todo.servise');
 
 router.post('/storeTodo', todoController.createToDo);
 
-router.get('/getUserToDoList', todoController.getUserToDo);
+router.post('/getUserToDoList', todoController.getUserToDo);
+
+router.post('/daleteTodo', todoController.deleteToDo);
 
 module.exports = router;

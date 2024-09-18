@@ -37,3 +37,15 @@ exports.getUserToDo = async (req, res, next) => {
         res.status(500).json({status: false, message:  'Fail to get user todo', error: e.message});
     }
 }
+
+exports.deleteToDo = async (req, res, next) => {
+    try {
+        const {id} = req.body;
+
+        let deleted = await ToDoServices.deleteToDo(id);
+
+        res.json({status: true, sucess:deleted});
+    } catch (e) {
+        next(e);
+    }
+}
